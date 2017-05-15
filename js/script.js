@@ -6,8 +6,7 @@ $('document').ready(function(){
 		navigator.geolocation.getCurrentPosition(function(position){
 			latitude = position.coords.latitude;
 			longitude = position.coords.longitude;
-			var key = returnAPIKey();
-			getWeather(latitude, longitude, key);
+			getWeather(latitude, longitude);
 		});
 	}
 
@@ -21,7 +20,7 @@ $('#conversion-btn').on('click', function(){
 var latitude;
 var longitude;
 
-var getWeather = function(latitude, longitude,key){
+var getWeather = function(latitude, longitude){
 	
 	//This version of the GET request uses freegeoip since it allows for JSONP use
 
@@ -31,7 +30,8 @@ var getWeather = function(latitude, longitude,key){
 	// });
 
 	var apiURL = 'https://crossorigin.me/https://api.darksky.net/forecast/';
-	var exclude = '?exclude=minutely,hourly,daily,alerts,flags'
+	var exclude = '?exclude=minutely,hourly,daily,alerts,flags';
+	var key = returnAPIKey();
 
 	//Use the previous code if crossorigin.me stops working
 	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude + exclude, function(json){
