@@ -3,6 +3,8 @@
 
 body {
 	margin: 0 auto;
+	height:900px;
+	color:#fff!important;
 	
 }
 
@@ -25,8 +27,9 @@ body {
 .navbar {
 	/*background: #34495e!important;*/
 	padding:20px;
+	margin-bottom:0!important;
+	padding-top:30px;
 }
-
 
 .navbar-inverse .navbar-nav>li>a {
 	color:#ecf0f1!important;
@@ -42,12 +45,25 @@ body {
 	font-size:2.5em;
 }
 
+
+
+#main-content {
+	background-image: url(../img/clouds.jpg)!important;
+	/*background:#2ecc71;*/
+	width:100%;
+	margin-top:0!important;
+	padding-top:0!important;
+}
+
+
 footer {
 	background:#333;
 	color:white;
 	height:70px;
 	width:100%!important;
+	
 }
+
 
 footer p {
 	padding-top:15px;
@@ -57,6 +73,8 @@ footer p {
 	font-weight:bold;
 	font-family: monospace;
 }
+
+
 
 footer a:link {
 	text-decoration: none;
