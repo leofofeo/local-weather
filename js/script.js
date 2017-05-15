@@ -56,7 +56,8 @@ var returnAPIKey = function(){
 
 
 var displayWeatherData = function(timezone, summary, precipProbability, temperature, windSpeed){
-	$('#weather-icon').html(summary);
+	var summaryImg  = getConditions(summary);
+	$('#weather-icon').html(summaryImg);
 	$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">'+ temperature+ '</span> &#8457');
 	$('#precip-prob').html('Precipitation: '+ precipProbability + '% chance');
 	$('#wind-speed').html('Wind speed: <span id="windImp">' + windSpeed +'</span> MPH');
@@ -80,4 +81,44 @@ var convertUnits = function(){
 		$('#wind-speed').html('Wind speed: <span id="windImp">' + mSpeed.toFixed(2) +'</span> MPH');
 		$('#conversion-btn').html('Get metrics units');
 	}
+}
+
+var getConditions = function(summary){
+	var summaryImg;
+	switch(summary){
+	case 'clear-day':
+		summaryImg = '<i class="wi wi-day-sunny"></i>';
+		break;
+	case 'clear-night':
+		summaryImg = '<i class="wi wi-night-clear"></i>';
+		break;
+	case 'partly-cloudy-day':
+		summaryImg = '<i class="wi wi-day-cloudy"></i>';
+		break;
+	case 'partly-cloudy-night':
+		summaryImg = '<i class="wi wi-night-alt-cloudy"></i>';
+		break;
+	case 'rain':
+		summaryImg = '<i class="wi wi-rain"></i>';
+		break;
+	case 'snow':
+		summaryImg = '<i class="wi wi-snow"></i>';
+		break;
+	case 'sleet':
+		summaryImg = '<i class="wi wi-sleet"></i>';
+		break;
+	case 'wind':
+		summaryImg = '<i class="wi wi-windy"></i>';
+		break;
+	case 'fog':
+		summaryImg = '<i class="wi wi-fog"></i>';
+		break;
+	case 'cloudy':
+		summaryImg = '<i class="wi wi-cloudy"></i>';
+		break;
+	default:
+		summaryImg = "There's weather in your future.";
+		break;	
+	}
+	return summaryImg;
 }
