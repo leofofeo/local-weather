@@ -63,21 +63,21 @@ var displayWeatherData = function(timezone, summary, precipProbability, temperat
 }
 
 var convertUnits = function(){
-	var windImp = parseFloat($('#windImp').html());
-	var tempImp = parseFloat($('#tempFahrenheit').html());
+	var windImp = (parseFloat($('#windImp').html())).toFixed(2);
+	var tempImp = (parseFloat($('#tempFahrenheit').html())).toFixed(2);
 	
 	if($('#tempFahrenheit').hasClass('fahrenheit')){
 		// convert and display in celsius);
 		var celsiusTemp = (tempImp - 32) * (5/9);
 		var kmSpeed = 1.6 * windImp;
-		$('#temperature').html('<span id="tempFahrenheit">' + celsiusTemp + '</span> &#8451');
-		$('#wind-speed').html('Wind speed: <span id="windImp">' + kmSpeed +'</span> KPH');
+		$('#temperature').html('<span id="tempFahrenheit">' + celsiusTemp.toFixed(2) + '</span> &#8451');
+		$('#wind-speed').html('Wind speed: <span id="windImp">' + kmSpeed.toFixed(2) +'</span> KPH');
 		$('#conversion-btn').html('Get imperial units');
 	} else {
 		var fahrenheitTemp =(tempImp * 9/5) + 32;
-		var mSpeed = windImp * .6;
-		$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">' + fahrenheitTemp + '</span> &#8457');
-		$('#wind-speed').html('Wind speed: <span id="windImp">' + mSpeed +'</span> MPH');
+		var mSpeed = windImp / 1.6;
+		$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">' + fahrenheitTemp.toFixed(2) + '</span> &#8457');
+		$('#wind-speed').html('Wind speed: <span id="windImp">' + mSpeed.toFixed(2) +'</span> MPH');
 		$('#conversion-btn').html('Get metrics units');
 	}
 }
