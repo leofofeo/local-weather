@@ -36,7 +36,6 @@ var getWeather = function(latitude, longitude,key){
 	//Use the previous code if crossorigin.me stops working
 	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude + exclude, function(json){
 		var myStr = JSON.stringify(json);
-		alert(myStr);
 		var myObj = JSON.parse(myStr);
 		var timezone = myObj['timezone'];
 		var summary = myObj.currently['icon'];
