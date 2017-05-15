@@ -30,8 +30,10 @@ var getWeather = function(latitude, longitude,key){
 	// 	alert(myStr);
 	// });
 
+	var apiURL = 'https://crossorigin.me/https://api.darksky.net/forecast/';
+
 	//Use the previous code if crossorigin.me stops working
-	$.getJSON('https://crossorigin.me/https://api.darksky.net/forecast/' + key + '/' + latitude + ','+ longitude, function(json){
+	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude, function(json){
 		var myStr = JSON.stringify(json);
 		// alert(myStr);
 		var myObj = JSON.parse(myStr);
