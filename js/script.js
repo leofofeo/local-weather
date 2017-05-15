@@ -31,11 +31,12 @@ var getWeather = function(latitude, longitude,key){
 	// });
 
 	var apiURL = 'https://crossorigin.me/https://api.darksky.net/forecast/';
+	var exclude = '?exclude=minutely,hourly,daily,alerts,flags'
 
 	//Use the previous code if crossorigin.me stops working
-	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude, function(json){
+	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude + exclude, function(json){
 		var myStr = JSON.stringify(json);
-		// alert(myStr);
+		alert(myStr);
 		var myObj = JSON.parse(myStr);
 		var timezone = myObj['timezone'];
 		var summary = myObj.currently['icon'];
