@@ -3,7 +3,6 @@
 
 body {
 	margin: 0 auto;
-	height:900px;
 	color:#fff!important;
 	
 }
@@ -55,10 +54,33 @@ body {
 	padding-top:0!important;
 }
 
-.weather-section {
-	margin-bottom:500px;
+.info-box {
+	background-color: #fff!important;
+	color:black!important;
+	margin:1%;
+	padding:20px;
+	width:50%;
+	border-radius:20px;
+	font-weight:bold;
+	font-size:2em;
+	font-family:'Roboto', sans-serif!important;
 }
 
+.info-row {
+	padding:20px;
+	padding-left:30px;
+	padding-right:30px;
+}
+
+.weather-section {
+	margin-bottom:100px;
+}
+
+.darksky a {
+	font-size:1.5em!important;
+	font-weight:bold!important;
+	color:#fff!important;
+}
 
 footer {
 	background:#333;

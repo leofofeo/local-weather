@@ -1,5 +1,7 @@
 //JS and jQuery for RQ
 $('document').ready(function(){
+	$('#conversion-btn').addClass('disabled');
+
 	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(function(position){
 			latitude = position.coords.latitude;
@@ -11,6 +13,10 @@ $('document').ready(function(){
 
 });
 
+
+$('#conversion-btn').on('click', function(){
+	convertUnits();
+});
 
 var latitude;
 var longitude;
@@ -36,6 +42,7 @@ var getWeather = function(latitude, longitude,key){
 		var windSpeed = myObj.currently['windSpeed'];
 
 		displayWeatherData(timezone, summary, precipProbability, temperature, windSpeed);
+		$('#conversion-btn').removeClass('disabled');
 	});
 }
 
@@ -48,7 +55,27 @@ var returnAPIKey = function(){
 
 var displayWeatherData = function(timezone, summary, precipProbability, temperature, windSpeed){
 	$('#weather-icon').html(summary);
-	$('#temperature').html(temperature + '  &#8457');
-	$('#precip-prob').html('Precipitation: '+ precipProbability + '% change');
-	$('#wind-speed').html(windSpeed + ' MPH');
+	$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">'+ temperature+ '</span> &#8457');
+	$('#precip-prob').html('Precipitation: '+ precipProbability + '% chance');
+	$('#wind-speed').html('Wind speed: <span id="windImp">' + windSpeed +'</span> MPH');
+}
+
+var convertUnits = function(){
+	var windImp = parseFloat($('#windImp').html());
+	var tempImp = parseFloat($('#tempFahrenheit').html());
+	
+	if($('#tempFahrenheit').hasClass('fahrenheit')){
+		// convert and display in celsius);
+		var celsiusTemp = (tempImp - 32) * (5/9);
+		var kmSpeed = 1.6 * windImp;
+		$('#temperature').html('<span id="tempFahrenheit">' + celsiusTemp + '</span> &#8451');
+		$('#wind-speed').html('Wind speed: <span id="windImp">' + kmSpeed +'</span> KPH');
+		$('#conversion-btn').html('Get imperial units');
+	} else {
+		var fahrenheitTemp =(tempImp * 9/5) + 32;
+		var mSpeed = windImp * .6;
+		$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">' + fahrenheitTemp + '</span> &#8457');
+		$('#wind-speed').html('Wind speed: <span id="windImp">' + mSpeed +'</span> MPH');
+		$('#conversion-btn').html('Get metrics units');
+	}
 }
