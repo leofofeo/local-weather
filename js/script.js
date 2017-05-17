@@ -37,7 +37,6 @@ var getWeather = function(latitude, longitude){
 		progressVal += 10;
 		prgoressVal = String(progressVal);
 		$('#progress-bar').attr('aria-valuenow', progressVal).css('width', progressVal);
-		console.log(progressVal);
 	}, 250);
 	//Use the previous code if crossorigin.me stops working
 	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude + exclude, function(json){
