@@ -59,7 +59,7 @@
 
 
       <div class="container nomargin" id="main-content"> <!-- Begin Body Container No Margin-->
-      
+
 
         <section class="title-section"> <!-- Section 1-->
           <div class="container">
@@ -67,9 +67,17 @@
               <div class="col-md-3"></div>
               <div class="col-md-6">
                 <div class="text-center">
-                <h1 class="title padding">
-                  Check your local weather!
-                </h1>
+                  <h1 class="title padding">
+                    Check your local weather!
+                  </h1>
+                  <div id="progress-div">
+                  <div class="loading-heading">Loading your local weather...</div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success progress-bar-striped animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="progress-bar">
+                      
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div> <!-- End Title Row-->
@@ -83,66 +91,66 @@
               <div class="col-md-3"></div>
               <div class="col-md-3 info-box" id="weather-icon">
                <!-- image of type of weather -->
-                <img src="">
-              </div>
-              <div class="col-md-3 info-box" id="temperature">
+               <img src="">
+             </div>
+             <div class="col-md-3 info-box" id="temperature">
 
-              </div>
-            </div>
-            <div class="row info-row">
-              <div class="col-md-3"></div>
-              <div class="col-md-3 info-box" id="precip-prob">
-               <!-- image of type of weather -->
-                <img src="">
-              </div>
-              <div class="col-md-3 info-box" id="wind-speed">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-              </div>
-              <div class="col-md-6">
-                <button type="button" id="conversion-btn" class="btn btn-default btn-primary btn-large">Get Metric units</button>
-              </div>
-            </div>
+             </div>
+           </div>
+           <div class="row info-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 info-box" id="precip-prob">
+             <!-- image of type of weather -->
+             <img src="">
+           </div>
+           <div class="col-md-3 info-box" id="wind-speed">
+           </div>
+         </div>
+         <div class="row">
+          <div class="col-md-3">
           </div>
-        </section> <!-- End weather section -->
-
-
-        <section id="attribution">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h4 class="text-center darksky">
-                   <a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
-                </h4>
-              </div>
-            </div>
-          </div>  
-        </section>
-
-
-      </div> <!-- End Container No Margin-->
-
-
-      <div class="footer-wrapper">
-        <footer class="text-center push">
-        <a href="https://leofofeo.github.io">
-          <p>
-            A Leo Fo Feo Production
-          </p> 
-          <i class="fa fa-beer" aria-hidden="true"></i> 
-        </a>
-      </footer>  
+          <div class="col-md-6">
+            <button type="button" id="conversion-btn" class="btn btn-default btn-primary btn-large">Get Metric units</button>
+          </div>
+        </div>
       </div>
-      
+    </section> <!-- End weather section -->
 
-      <!--jQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-      <script type="text/javascript" src="js/script.js"></script>
+    <section id="attribution">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-center darksky">
+             <a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+           </h4>
+         </div>
+       </div>
+     </div>  
+   </section>
 
-      <!-- Bootstrap JS -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    </body>
-    </html>
+
+ </div> <!-- End Container No Margin-->
+
+
+ <div class="footer-wrapper">
+  <footer class="text-center push">
+    <a href="https://leofofeo.github.io">
+      <p>
+        A Leo Fo Feo Production
+      </p> 
+      <i class="fa fa-beer" aria-hidden="true"></i> 
+    </a>
+  </footer>  
+</div>
+
+
+<!--jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

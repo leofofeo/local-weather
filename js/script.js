@@ -32,7 +32,13 @@ var getWeather = function(latitude, longitude){
 	var apiURL = 'https://crossorigin.me/https://api.darksky.net/forecast/';
 	var exclude = '?exclude=minutely,hourly,daily,alerts,flags';
 	var key = returnAPIKey();
-
+	var refreshIntervalId = window.setInterval(function(){
+		var progressVal = parseInt($('#progress-bar').attr('aria-valuenow'));
+		progressVal += 10;
+		prgoressVal = String(progressVal);
+		$('#progress-bar').attr('aria-valuenow', progressVal).css('width', progressVal);
+		console.log(progressVal);
+	}, 250);
 	//Use the previous code if crossorigin.me stops working
 	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude + exclude, function(json){
 		var myStr = JSON.stringify(json);
@@ -45,6 +51,8 @@ var getWeather = function(latitude, longitude){
 
 		displayWeatherData(timezone, summary, precipProbability, temperature, windSpeed);
 		$('#conversion-btn').removeClass('disabled');
+		$('#progress-div').hide();
+		window.clearInterval(refreshIntervalId);
 	});
 }
 

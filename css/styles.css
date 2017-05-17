@@ -17,9 +17,17 @@ body {
 	margin:10% auto;
 }
 
+.loading-heading {
+	font-weight:bold;
+	text-align: center;
+	margin: 20px auto;
+}
+
 .padding {
 	margin: 50px 0;
 }
+
+
 
 /* Navigation Styling */
 
