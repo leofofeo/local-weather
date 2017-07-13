@@ -1,124 +1,116 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
 
+/*********************/
+/***  HEADER  ***/
+/*********************/
 
-body {
-	margin: 0 auto;
-	color:#fff!important;
-	
+.section-header {
+	background-image: 
+		linear-gradient(rgba(0, 0, 0, .7), 
+			rgba(0, 0, 0, .7)), url('https://www.osfashland.org/~/media/Content-Masthead-Folder/WeatherMH47.ashx?as=1&h=308&la=en&w=746&hash=88B4BF08C1D40F898E4AD0E7EFA866F20C831F87');
+	background-attachment: fixed;
+	background-size: cover;
+	height: 50vh;
+	background-position: cover;
+	margin-bottom: 40px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.container .nomargin {
-	margin:0;
-	padding:0;
-	width:100%;
+.flex-box-header, .flex-box-row {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row wrap;
 }
 
-.content-main {
-	margin:10% auto;
+.flex-box-header {
+	height:80vh;
 }
 
-.loading-heading {
-	font-weight:bold;
-	text-align: center;
-	margin: 20px auto;
+h1 {
+	font-size: 5em;
+	color:#fff;
+	letter-spacing: 3px;
+	margin:0 auto;
+	font-family: 'Montserrat', sans-sarif;
+	text-transform: uppercase;
 }
 
-.padding {
-	margin: 50px 0;
+
+
+/*********************/
+/***  LOADING PROGRESS  ***/
+/*********************/
+
+.loading-bar {
+	height:24px;
+	border-radius: 20px;
+	width:70%;
+	background-color: lightgray;
+	margin:0 auto;
+}
+
+.loading-bar-progress {
+	height:24px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: #8e44ad;
+	width:1%;
 }
 
 
 
-/* Navigation Styling */
 
-.navbar {
-	/*background: #34495e!important;*/
-	padding:20px;
-	margin-bottom:0!important;
-	padding-top:30px;
-}
+/*********************/
+/*** WEATHER SECTION  ***/
+/*********************/
 
-.navbar-inverse .navbar-nav>li>a {
-	color:#ecf0f1!important;
+.weather-section {
+	font-family: 'Lato', sans-sarif;
 	font-size:1.5em;
+	margin-bottom:20px;
 }
 
-.navbar .navbar-brand:hover {
-	color:#2980b9!important;
+.weather-section span{
+	font-weight:bold;
 }
 
-.navbar .navbar-brand {
-	color: #ecf0f1!important;
-	font-size:2.5em;
-}
-
-
-
-#main-content {
-	background-image: url(../img/clouds.jpg)!important;
-	/*background:#2ecc71;*/
-	width:100%;
-	margin-top:0!important;
-	padding-top:0!important;
+.btn {
+	border:0;
+	background-color:lightgray;
+	padding:20px;
+	border-radius:5px;
 }
 
 .info-box {
-	background-color: #fff!important;
-	color:black!important;
-	margin:1%;
-	padding:20px;
-	width:50%;
-	border-radius:20px;
-	font-weight:bold;
-	font-size:2em;
-	font-family:'Roboto', sans-serif!important;
+	padding:15px;
 }
 
-.info-row {
-	padding:20px;
-	padding-left:30px;
-	padding-right:30px;
-}
+/*********************/
+/***  FOOTER  ***/
+/*********************/
 
-.weather-section {
-	margin-bottom:100px;
-}
-
-.darksky a {
-	font-size:1.5em!important;
-	font-weight:bold!important;
-	color:#fff!important;
-}
-
-footer {
-	background:#333;
-	color:white;
-	height:70px;
-	width:100%!important;
-	
-}
-
-
-footer p {
-	padding-top:15px;
-	padding-left:auto;
-	padding-right: auto;
-	margin:auto;
-	font-weight:bold;
-	font-family: monospace;
-}
-
-
-
-footer a:link {
-	text-decoration: none;
-	color:#2980b9!important;
-}
-
-/*footer a {
+.section-footer {
+	background-color: #333333;
 	color:#fff;
 }
-*/
-footer a:hover {
-	color:#fff!important;
+
+.section-footer i, .section-footer a, .section-footer h4 a {
+	display:block;
+	color:#fff;
+	font-weight:bold;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+	font-size: .9em;
+	margin-top:10px;
+}
+
+.section-footer a {
+	text-decoration: none;
+}
+
+.section-footer a:hover, .section-footer i:hover, section-footer p:hover {
+	color:#8e44ad;
 }

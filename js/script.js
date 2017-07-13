@@ -1,6 +1,6 @@
 //JS and jQuery for RQ
 $('document').ready(function(){
-	$('#conversion-btn').addClass('disabled');
+	$('#j-conversion-btn').addClass('disabled');
 
 	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(function(position){
@@ -13,7 +13,7 @@ $('document').ready(function(){
 });
 
 
-$('#conversion-btn').on('click', function(){
+$('#j-conversion-btn').on('click', function(){
 	convertUnits();
 });
 
@@ -33,11 +33,14 @@ var getWeather = function(latitude, longitude){
 	var exclude = '?exclude=minutely,hourly,daily,alerts,flags';
 	var key = returnAPIKey();
 	var refreshIntervalId = window.setInterval(function(){
-		var progressVal = parseInt($('#progress-bar').attr('aria-valuenow'));
-		progressVal += 10;
-		prgoressVal = String(progressVal);
-		$('#progress-bar').attr('aria-valuenow', progressVal).css('width', progressVal);
-	}, 250);
+		var progressVal = $('.loading-bar-progress').width();
+		// console.log(progressVal);
+
+		progressVal += 4;
+		progressVal = String(progressVal);
+		// console.log(progressVal);
+		$('.loading-bar-progress').css('width', progressVal);
+	}, 50);
 	//Use the previous code if crossorigin.me stops working
 	$.getJSON('' + apiURL + '' + key + '/' + latitude + ','+ longitude + exclude, function(json){
 		var myStr = JSON.stringify(json);
@@ -49,8 +52,8 @@ var getWeather = function(latitude, longitude){
 		var windSpeed = myObj.currently['windSpeed'];
 
 		displayWeatherData(timezone, summary, precipProbability, temperature, windSpeed);
-		$('#conversion-btn').removeClass('disabled');
-		$('#progress-div').hide();
+		$('#j-conversion-btn').removeClass('disabled');
+		$('#j-progress-div').hide();
 		window.clearInterval(refreshIntervalId);
 	});
 }
@@ -64,10 +67,10 @@ var returnAPIKey = function(){
 
 var displayWeatherData = function(timezone, summary, precipProbability, temperature, windSpeed){
 	var summaryImg  = getConditions(summary);
-	$('#weather-icon').html(summaryImg);
-	$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">'+ temperature+ '</span> &#8457');
-	$('#precip-prob').html('Precipitation: '+ precipProbability + '% chance');
-	$('#wind-speed').html('Wind speed: <span id="windImp">' + windSpeed +'</span> MPH');
+	$('#j-weather-icon').html(summaryImg);
+	$('#j-temperature').html('<span id="tempFahrenheit" class="fahrenheit">'+ temperature+ '</span> &#8457');
+	$('#j-precip-prob').html('Precipitation: <span id="precipProbability">'+ precipProbability + '%</span> chance');
+	$('#j-wind-speed').html('Wind speed: <span id="windImp">' + windSpeed +'</span> MPH');
 }
 
 var convertUnits = function(){
@@ -78,15 +81,15 @@ var convertUnits = function(){
 		// convert and display in celsius);
 		var celsiusTemp = (tempImp - 32) * (5/9);
 		var kmSpeed = 1.6 * windImp;
-		$('#temperature').html('<span id="tempFahrenheit">' + celsiusTemp.toFixed(2) + '</span> &#8451');
-		$('#wind-speed').html('Wind speed: <span id="windImp">' + kmSpeed.toFixed(2) +'</span> KPH');
-		$('#conversion-btn').html('Get imperial units');
+		$('#j-temperature').html('<span id="tempFahrenheit">' + celsiusTemp.toFixed(2) + '</span> &#8451');
+		$('#j-wind-speed').html('Wind speed: <span id="windImp">' + kmSpeed.toFixed(2) +'</span> KPH');
+		$('#j-conversion-btn').html('Get imperial units');
 	} else {
 		var fahrenheitTemp =(tempImp * 9/5) + 32;
 		var mSpeed = windImp / 1.6;
-		$('#temperature').html('<span id="tempFahrenheit" class="fahrenheit">' + fahrenheitTemp.toFixed(2) + '</span> &#8457');
-		$('#wind-speed').html('Wind speed: <span id="windImp">' + mSpeed.toFixed(2) +'</span> MPH');
-		$('#conversion-btn').html('Get metrics units');
+		$('#j-temperature').html('<span id="tempFahrenheit" class="fahrenheit">' + fahrenheitTemp.toFixed(2) + '</span> &#8457');
+		$('#j-wind-speed').html('Wind speed: <span id="windImp">' + mSpeed.toFixed(2) +'</span> MPH');
+		$('#j-conversion-btn').html('Get metrics units');
 	}
 }
 
